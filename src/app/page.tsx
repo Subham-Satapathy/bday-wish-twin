@@ -105,37 +105,37 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           {/* Welcome Section */}
-          <section id="welcome" className="section">
+          <section id="welcome" className="min-h-screen-mobile flex items-center justify-center relative">
             <WelcomeSection />
           </section>
 
           {/* Photo Gallery Section */}
-          <section id="memories" className="section">
+          <section id="memories" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
             <PhotoGallery />
           </section>
 
           {/* Celebrate Section */}
-          <section id="celebrate" className="section">
+          <section id="celebrate" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
             <CelebrateSection />
           </section>
 
           {/* Audio Message Section */}
-          <section id="message" className="section">
+          <section id="message" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
             <AudioSection />
           </section>
 
           {/* Love Letter Section */}
-          <section id="letter" className="section">
+          <section id="letter" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
             <LoveLetterSection />
           </section>
 
           {/* Heart Game Section */}
-          <section id="game" className="section">
+          <section id="game" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
             <HeartGameSection />
           </section>
 
           {/* Final Surprise Section */}
-          <section id="surprise" className="section">
+          <section id="surprise" className="min-h-screen-mobile flex items-center justify-center relative">
             <SurpriseSection />
           </section>
         </motion.div>

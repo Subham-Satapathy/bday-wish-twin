@@ -70,7 +70,7 @@ export default function WelcomeSection() {
 
         {/* Welcome message */}
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-script text-white mb-6 text-shadow-lg"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-script text-white mb-4 sm:mb-6 text-shadow-lg px-2 text-center"
           initial={{ opacity: 0, y: 50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
@@ -84,7 +84,7 @@ export default function WelcomeSection() {
         </motion.h1>
 
         <motion.p
-          className="text-xl md:text-2xl lg:text-3xl text-white/95 mb-8 max-w-4xl leading-relaxed text-shadow"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 mb-6 sm:mb-8 max-w-4xl leading-relaxed text-shadow px-4 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}

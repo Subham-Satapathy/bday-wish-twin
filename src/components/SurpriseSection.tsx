@@ -135,7 +135,7 @@ export default function SurpriseSection() {
               stiffness: 100 
             }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-script text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-script text-white leading-tight px-4 text-center">
               {messages[currentMessageIndex]}
             </h1>
           </motion.div>

@@ -107,11 +107,11 @@ export default function PhotoGallery() {
   }
 
   return (
-    <div className="w-full h-screen bg-gradient-secondary flex items-center justify-center px-4">
-      <div className="w-full max-w-4xl">
+    <div className="w-full bg-gradient-secondary px-4 py-8">
+      <div className="w-full max-w-4xl mx-auto">
         {/* Section title */}
         <motion.h2
-          className="text-4xl md:text-5xl font-script text-center text-text-dark mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-center text-text-dark mb-6 sm:mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -130,7 +130,7 @@ export default function PhotoGallery() {
         >
           {/* Photo display area */}
           <div
-            className="relative h-96 md:h-[500px] overflow-hidden"
+            className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -144,16 +144,16 @@ export default function PhotoGallery() {
                 exit={{ opacity: 0, x: -300 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
-                <div className="relative w-full h-64 md:h-80 mb-4">
+                <div className="relative w-full h-40 sm:h-52 md:h-64 lg:h-72 mb-4">
                   <Image
                     src={photos[currentIndex].src}
                     alt={photos[currentIndex].alt}
                     fill
-                    className="object-cover rounded-2xl shadow-medium"
+                    className="object-cover rounded-xl sm:rounded-2xl shadow-medium"
                     priority={currentIndex === 0}
                   />
                 </div>
-                <p className="text-lg md:text-xl text-text-medium text-center italic px-4">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-text-medium text-center italic px-2 sm:px-4">
                   {photos[currentIndex].caption}
                 </p>
               </motion.div>

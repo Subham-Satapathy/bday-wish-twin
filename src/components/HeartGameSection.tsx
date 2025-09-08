@@ -135,7 +135,7 @@ export default function HeartGameSection() {
   }, [])
 
   return (
-    <div className="relative w-full min-h-screen bg-primary-lavender flex flex-col items-center justify-center p-4">
+    <div className="relative w-full bg-primary-lavender p-4 py-8">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0" style={{
@@ -153,10 +153,10 @@ export default function HeartGameSection() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl font-script text-text-dark mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-text-dark mb-4 px-4 text-center">
           Pop the Hearts! 💖
         </h2>
-        <p className="text-lg md:text-xl text-text-medium max-w-2xl">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-text-medium max-w-2xl px-4 text-center">
           {gameActive 
             ? "Quick! Click the floating hearts to discover why I love you!"
             : "Click the floating hearts to discover special messages about why I love you!"
@@ -186,7 +186,7 @@ export default function HeartGameSection() {
       {/* Game area */}
       <motion.div
         ref={gameAreaRef}
-        className="relative w-full max-w-4xl h-96 md:h-[500px] bg-white/30 backdrop-blur-sm rounded-3xl shadow-strong overflow-hidden border border-white/50"
+        className="relative w-full max-w-4xl h-64 sm:h-80 md:h-96 lg:h-[500px] bg-white/30 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-strong overflow-hidden border border-white/50"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}

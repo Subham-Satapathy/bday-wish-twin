@@ -237,6 +237,13 @@ body {
 
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
+  /* Force proper viewport behavior */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
   /* Improve touch target sizes */
   button, 
   [role="button"],
@@ -258,19 +265,107 @@ body {
   
   /* Improve readability */
   body {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
   }
   
-  /* Optimize for thumb navigation */
-  .mobile-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+  /* Section adjustments for mobile */
+  .section {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding: 2rem 1rem;
+  }
+  
+  /* Typography scaling */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  /* Container padding */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Button improvements */
+  .btn-primary {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+  }
+  
+  /* Text sizing */
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem;
+  }
+  
+  .text-5xl {
+    font-size: 2rem;
+  }
+  
+  .text-6xl {
+    font-size: 2.25rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .section {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Even smaller text for very small screens */
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .text-4xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 1.75rem;
+  }
+  
+  .text-6xl {
+    font-size: 2rem;
+  }
+  
+  /* Smaller buttons for tiny screens */
+  .btn-primary {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
   }
 }

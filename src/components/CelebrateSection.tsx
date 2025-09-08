@@ -133,7 +133,7 @@ export default function CelebrateSection() {
   }, [isAnimating, animateConfetti])
 
   return (
-    <div className="relative w-full h-screen bg-primary-mint flex items-center justify-center overflow-hidden">
+    <div className="relative w-full bg-primary-mint overflow-hidden py-8">
       {/* Canvas for confetti */}
       <canvas
         ref={canvasRef}
@@ -167,7 +167,7 @@ export default function CelebrateSection() {
       {/* Main content */}
       <div className="relative z-20 text-center px-4">
         <motion.h2
-          className="text-4xl md:text-5xl font-script text-text-dark mb-8"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-text-dark mb-6 sm:mb-8 px-4 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -177,7 +177,7 @@ export default function CelebrateSection() {
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl text-text-medium mb-12 max-w-2xl mx-auto"
+          className="text-base sm:text-lg md:text-xl text-text-medium mb-8 sm:mb-12 max-w-2xl mx-auto px-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -191,7 +191,7 @@ export default function CelebrateSection() {
         <motion.button
           onClick={startConfetti}
           disabled={isAnimating}
-          className={`relative group px-12 py-6 text-2xl md:text-3xl font-bold text-white rounded-3xl shadow-strong transition-all duration-300 ${
+          className={`relative group px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white rounded-2xl sm:rounded-3xl shadow-strong transition-all duration-300 ${
             isAnimating 
               ? 'bg-gray-400 cursor-not-allowed' 
               : 'bg-gradient-to-r from-primary-pink via-accent-rose to-primary-lavender hover:scale-105 hover:shadow-lg active:scale-95'
