@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for enhanced mobile experience */
+:root {
+  --vh: 1vh;
+}
+
+/* Base styles optimized for mobile */
+html {
+  scroll-behavior: smooth;
+  /* Prevent zoom on input focus for iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Prevent bounce scrolling on iOS */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #FFB6C1 0%, #E6E6FA 100%);
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  overflow-x: hidden;
+  /* Improve scroll performance on mobile */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent text selection on touch devices for UI elements */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for content areas */
+.selectable-text {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Improved touch targets for mobile */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Heart shape utility class */
+.heart {
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.heart::before {
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: 0;
+}
+
+.heart::after {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 182, 193, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 182, 193, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 182, 193, 0.7);
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus {
+  outline: 3px solid #FFB6C1;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Improve tap highlighting on mobile */
+* {
+  -webkit-tap-highlight-color: rgba(255, 182, 193, 0.3);
+}
+
+/* Custom animations for confetti */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #FFB6C1;
+  animation: confetti-fall 3s linear infinite;
+}
+
+/* Floating heart animation for game */
+@keyframes float-heart {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1) rotate(45deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(10vh) scale(1) rotate(45deg);
+  }
+  100% {
+    transform: translateY(-10vh) scale(0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.floating-game-heart {
+  animation: float-heart 4s linear;
+}
+
+/* Ensure proper viewport height on mobile */
+.min-h-screen-mobile {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFB6C1 0%, #E6E6FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism effect for modern UI */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-pink to-primary-lavender text-white font-semibold py-4 px-8 rounded-2xl shadow-medium transition-all duration-300 transform hover:scale-105 hover:shadow-strong touch-target;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary-pink font-semibold py-3 px-6 rounded-xl shadow-soft transition-all duration-300 hover:shadow-medium touch-target;
+}
+
+/* Section styling */
+.section {
+  @apply min-h-screen-mobile flex items-center justify-center relative px-4 py-16;
+}
+
+/* Typography improvements */
+.title-script {
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.3);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Improve touch target sizes */
+  button, 
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent zoom on form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+  
+  /* Improve readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Optimize for thumb navigation */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+}
