@@ -57,12 +57,17 @@ export default function AudioSection() {
         audio.pause()
         setIsPlaying(false)
       } else {
+        // For demo purposes, show a message if no audio file exists
+        if (audio.src === '' || audio.src === window.location.href) {
+          setError('Audio message coming soon! 💕 For now, imagine my voice saying "Happy Birthday Twin, you mean the world to me!"')
+          return
+        }
         await audio.play()
         setIsPlaying(true)
       }
     } catch (err) {
       console.error('Audio play error:', err)
-      setError('Unable to play audio. Please try again!')
+      setError('For now, imagine my voice saying: "Happy Birthday my love! You are the most amazing person and I&apos;m so lucky to have you!" 💕')
     }
   }
 
@@ -108,7 +113,7 @@ export default function AudioSection() {
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl text-text-medium mb-12"
+          className="text-base sm:text-lg md:text-xl text-text-medium mb-8 sm:mb-12 px-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}

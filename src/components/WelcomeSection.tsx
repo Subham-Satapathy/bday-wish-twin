@@ -15,24 +15,25 @@ export default function WelcomeSection() {
   return (
     <div className="relative w-full h-screen bg-gradient-sunset overflow-hidden">
       {/* Background floating hearts */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-6 h-6 bg-white/70 heart"
+            className="absolute w-5 h-5 bg-white/50 heart"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${15 + (i * 12)}%`,
+              top: `${20 + Math.random() * 60}%`,
             }}
             animate={{
-              y: [0, -30, 0],
+              y: [0, -20, 0],
               rotate: [45, 45, 45],
-              scale: [0.8, 1.2, 0.8],
+              scale: [0.8, 1.1, 0.8],
+              opacity: [0.3, 0.7, 0.3],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: 5 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: i * 0.5,
               ease: "easeInOut"
             }}
           />
@@ -70,7 +71,7 @@ export default function WelcomeSection() {
 
         {/* Welcome message */}
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-script text-white mb-4 sm:mb-6 text-shadow-lg px-2 text-center"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-script text-contrast-light mb-4 sm:mb-6 px-2 text-center"
           initial={{ opacity: 0, y: 50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
@@ -84,7 +85,7 @@ export default function WelcomeSection() {
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 mb-6 sm:mb-8 max-w-4xl leading-relaxed text-shadow px-4 text-center"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-contrast-light mb-6 sm:mb-8 max-w-4xl leading-relaxed px-4 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}

@@ -75,8 +75,8 @@ export default function Home() {
 
       {/* Mobile navigation */}
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
-        <div className="bg-white/90 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
-          <div className="flex space-x-2">
+        <div className="bg-white/95 backdrop-blur-md rounded-full px-4 py-3 shadow-lg border border-primary-pink/20">
+          <div className="flex space-x-3">
             {[0, 1, 2, 3, 4, 5, 6].map((index) => (
               <button
                 key={index}
@@ -85,10 +85,10 @@ export default function Home() {
                   const element = document.getElementById(sections[index])
                   element?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 touch-target ${
                   currentSection === index
-                    ? 'bg-primary-pink scale-125'
-                    : 'bg-gray-300'
+                    ? 'bg-primary-pink scale-125 shadow-sm'
+                    : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to section ${index + 1}`}
               />
@@ -109,30 +109,48 @@ export default function Home() {
             <WelcomeSection />
           </section>
 
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+
           {/* Photo Gallery Section */}
-          <section id="memories" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
+          <section id="memories" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
             <PhotoGallery />
           </section>
 
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-primary-pink/30 to-transparent"></div>
+
           {/* Celebrate Section */}
-          <section id="celebrate" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
+          <section id="celebrate" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
             <CelebrateSection />
           </section>
 
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-accent-rose/30 to-transparent"></div>
+
           {/* Audio Message Section */}
-          <section id="message" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
+          <section id="message" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
             <AudioSection />
           </section>
 
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-primary-lavender/30 to-transparent"></div>
+
           {/* Love Letter Section */}
-          <section id="letter" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
+          <section id="letter" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
             <LoveLetterSection />
           </section>
 
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-accent-purple/30 to-transparent"></div>
+
           {/* Heart Game Section */}
-          <section id="game" className="min-h-screen-mobile flex items-center justify-center relative py-8 sm:py-16">
+          <section id="game" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
             <HeartGameSection />
           </section>
+
+          {/* Section Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
           {/* Final Surprise Section */}
           <section id="surprise" className="min-h-screen-mobile flex items-center justify-center relative">

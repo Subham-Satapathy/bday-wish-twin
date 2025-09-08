@@ -214,20 +214,26 @@ export default function SurpriseSection() {
               You make every day feel like a celebration! ✨
             </p>
             
-            <div className="flex justify-center space-x-2 text-4xl md:text-5xl">
+            <div className="flex justify-center space-x-3 sm:space-x-4 text-3xl sm:text-4xl md:text-5xl">
               {['🎊', '🎉', '💕', '🎈', '✨'].map((emoji, i) => (
                 <motion.span
                   key={i}
+                  className="inline-block"
                   animate={{
-                    y: [0, -20, 0],
-                    rotate: [0, 360, 0],
-                    scale: [1, 1.2, 1],
+                    y: [0, -15, 0],
+                    rotate: [0, 10, -10, 0],
+                    scale: [1, 1.15, 1],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 3,
                     repeat: Infinity,
-                    delay: i * 0.3,
+                    delay: i * 0.4,
                     ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    scale: 1.3,
+                    rotate: 360,
+                    transition: { duration: 0.5 }
                   }}
                 >
                   {emoji}

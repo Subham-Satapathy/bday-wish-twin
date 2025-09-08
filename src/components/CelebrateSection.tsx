@@ -167,7 +167,7 @@ export default function CelebrateSection() {
       {/* Main content */}
       <div className="relative z-20 text-center px-4">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-text-dark mb-6 sm:mb-8 px-4 text-center"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-contrast-dark mb-6 sm:mb-8 px-4 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

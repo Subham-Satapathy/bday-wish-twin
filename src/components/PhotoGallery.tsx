@@ -111,7 +111,7 @@ export default function PhotoGallery() {
       <div className="w-full max-w-4xl mx-auto">
         {/* Section title */}
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-center text-text-dark mb-6 sm:mb-8 md:mb-12 px-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-script text-center text-contrast-dark mb-6 sm:mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
