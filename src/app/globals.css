@@ -274,6 +274,23 @@ body {
     position: relative;
   }
   
+  /* Optimize touch scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Reduce motion for better performance on mobile */
+  .heart {
+    will-change: transform;
+  }
+  
+  /* Better mobile text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
   /* Improve touch target sizes */
   button, 
   [role="button"],

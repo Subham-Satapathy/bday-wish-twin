@@ -14,37 +14,36 @@ export default function WelcomeSection() {
 
   return (
     <div className="relative w-full h-screen bg-gradient-sunset overflow-hidden">
-      {/* Background floating hearts */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+      {/* Background floating hearts - very subtle */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-5 h-5 bg-white/50 heart"
+            className="absolute w-4 h-4 bg-white/20 heart"
             style={{
-              left: `${15 + (i * 12)}%`,
-              top: `${20 + Math.random() * 60}%`,
+              left: `${20 + (i * 15)}%`,
+              top: `${30 + Math.random() * 40}%`,
             }}
             animate={{
-              y: [0, -20, 0],
+              y: [0, -15, 0],
               rotate: [45, 45, 45],
-              scale: [0.8, 1.1, 0.8],
-              opacity: [0.3, 0.7, 0.3],
+              scale: [0.8, 1.0, 0.8],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: 5 + Math.random() * 3,
+              duration: 6 + Math.random() * 3,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: i * 0.8,
               ease: "easeInOut"
             }}
           />
         ))}
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-        {/* Large decorative hearts */}
+      {/* Background decorative hearts - moved behind text */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <motion.div
-          className="absolute top-20 left-10 w-16 h-16 bg-accent-rose/80 heart"
+          className="absolute top-20 left-10 w-16 h-16 bg-accent-rose/20 heart"
           animate={{
             scale: [1, 1.1, 1],
             rotate: [45, 45, 45],
@@ -56,7 +55,7 @@ export default function WelcomeSection() {
           }}
         />
         <motion.div
-          className="absolute top-32 right-16 w-12 h-12 bg-white/80 heart"
+          className="absolute top-32 right-16 w-12 h-12 bg-white/15 heart"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [45, 45, 45],
@@ -68,10 +67,32 @@ export default function WelcomeSection() {
             ease: "easeInOut"
           }}
         />
+        {/* Large background heart - very subtle */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-white/5 heart"
+          animate={{
+            scale: [1, 1.05, 1],
+            rotate: [45, 45, 45],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
 
         {/* Welcome message */}
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-script text-contrast-light mb-4 sm:mb-6 px-2 text-center"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-script mb-4 sm:mb-6 px-2 text-center"
+          style={{
+            color: '#FFFFFF',
+            textShadow: '4px 4px 8px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.6), 0px 0px 8px rgba(255, 182, 193, 0.5)',
+            fontWeight: 700
+          }}
           initial={{ opacity: 0, y: 50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
@@ -81,11 +102,21 @@ export default function WelcomeSection() {
             stiffness: 100
           }}
         >
-          Happy Birthday, Twin! 🎉
+          Happy Birthday, <span style={{ 
+            color: '#FFFFFF', 
+            textShadow: '4px 4px 12px rgba(0, 0, 0, 0.9), 2px 2px 6px rgba(0, 0, 0, 0.7), 0px 0px 12px rgba(255, 182, 193, 0.8)',
+            fontWeight: 800,
+            letterSpacing: '2px'
+          }}>Twin</span>! 🎉
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-contrast-light mb-6 sm:mb-8 max-w-4xl leading-relaxed px-4 text-center"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-8 max-w-4xl leading-relaxed px-4 text-center"
+          style={{
+            color: '#FFFFFF',
+            textShadow: '3px 3px 6px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.6)',
+            fontWeight: 600
+          }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
@@ -95,7 +126,12 @@ export default function WelcomeSection() {
 
         {/* Animated subtitle */}
         <motion.div
-          className="text-lg md:text-xl text-white/90 italic mb-12"
+          className="text-base sm:text-lg md:text-xl italic mb-8 sm:mb-12 px-6 text-center"
+          style={{
+            color: '#FFFFFF',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6)',
+            fontWeight: 500
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
@@ -105,38 +141,41 @@ export default function WelcomeSection() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
+          className="absolute bottom-16 sm:bottom-12 md:bottom-8 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center">
             <motion.div
-              className="w-1 h-3 bg-white/80 rounded-full mt-2"
-              animate={{ y: [0, 12, 0] }}
+              className="w-1 h-2 sm:h-3 bg-white/90 rounded-full mt-1 sm:mt-2"
+              animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
-          <p className="text-white/80 text-sm mt-2">Scroll</p>
+          <p className="text-xs sm:text-sm mt-2 font-medium" style={{
+            color: '#FFFFFF',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)'
+          }}>Scroll</p>
         </motion.div>
 
-        {/* Sparkle effects */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+        {/* Sparkle effects - very subtle */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-white rounded-full"
+              className="absolute w-1 h-1 bg-white/40 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
               animate={{
-                opacity: [0, 1, 0],
+                opacity: [0, 0.4, 0],
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: 2 + Math.random() * 2,
+                duration: 3 + Math.random() * 2,
                 repeat: Infinity,
-                delay: Math.random() * 3,
+                delay: Math.random() * 4,
                 ease: "easeInOut"
               }}
             />

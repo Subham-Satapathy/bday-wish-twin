@@ -1,11 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['via.placeholder.com'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
+      },
+      // Specific patterns for Google Photos
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
       },
     ],
   },

@@ -91,7 +91,7 @@ export default function AudioSection() {
   }
 
   return (
-    <div className="relative w-full h-screen bg-primary-cream flex items-center justify-center">
+    <div className="relative w-full min-h-screen bg-primary-cream flex items-center justify-center py-8">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{

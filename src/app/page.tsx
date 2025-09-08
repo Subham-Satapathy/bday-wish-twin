@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import WelcomeSection from '@/components/WelcomeSection'
 import PhotoGallery from '@/components/PhotoGallery'
 import CelebrateSection from '@/components/CelebrateSection'
-import AudioSection from '@/components/AudioSection'
 import LoveLetterSection from '@/components/LoveLetterSection'
 import HeartGameSection from '@/components/HeartGameSection'
 import SurpriseSection from '@/components/SurpriseSection'
@@ -55,7 +54,7 @@ export default function Home() {
       {/* Navigation dots for desktop */}
       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:block">
         <nav className="flex flex-col space-y-4">
-          {['Welcome', 'Memories', 'Celebrate', 'Message', 'Letter', 'Game', 'Surprise'].map((section, index) => (
+          {['Welcome', 'Memories', 'Celebrate', 'Letter', 'Game', 'Surprise'].map((section, index) => (
             <button
               key={section}
               onClick={() => {
@@ -73,29 +72,6 @@ export default function Home() {
         </nav>
       </div>
 
-      {/* Mobile navigation */}
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
-        <div className="bg-white/95 backdrop-blur-md rounded-full px-4 py-3 shadow-lg border border-primary-pink/20">
-          <div className="flex space-x-3">
-            {[0, 1, 2, 3, 4, 5, 6].map((index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  const sections = ['welcome', 'memories', 'celebrate', 'message', 'letter', 'game', 'surprise']
-                  const element = document.getElementById(sections[index])
-                  element?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 touch-target ${
-                  currentSection === index
-                    ? 'bg-primary-pink scale-125 shadow-sm'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to section ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Main content */}
       <AnimatePresence>
@@ -105,7 +81,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           {/* Welcome Section */}
-          <section id="welcome" className="min-h-screen-mobile flex items-center justify-center relative">
+          <section id="welcome">
             <WelcomeSection />
           </section>
 
@@ -113,7 +89,7 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
           {/* Photo Gallery Section */}
-          <section id="memories" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
+          <section id="memories">
             <PhotoGallery />
           </section>
 
@@ -121,23 +97,15 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-primary-pink/30 to-transparent"></div>
 
           {/* Celebrate Section */}
-          <section id="celebrate" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
+          <section id="celebrate">
             <CelebrateSection />
           </section>
 
           {/* Section Divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-accent-rose/30 to-transparent"></div>
 
-          {/* Audio Message Section */}
-          <section id="message" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
-            <AudioSection />
-          </section>
-
-          {/* Section Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-primary-lavender/30 to-transparent"></div>
-
           {/* Love Letter Section */}
-          <section id="letter" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
+          <section id="letter">
             <LoveLetterSection />
           </section>
 
@@ -145,7 +113,7 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-accent-purple/30 to-transparent"></div>
 
           {/* Heart Game Section */}
-          <section id="game" className="min-h-screen-mobile flex items-center justify-center relative py-12 sm:py-20">
+          <section id="game">
             <HeartGameSection />
           </section>
 
@@ -153,7 +121,7 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
           {/* Final Surprise Section */}
-          <section id="surprise" className="min-h-screen-mobile flex items-center justify-center relative">
+          <section id="surprise">
             <SurpriseSection />
           </section>
         </motion.div>

@@ -66,7 +66,7 @@ export default function LoveLetterSection() {
   }
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-secondary flex items-center justify-center py-16 px-4">
+    <div className="relative w-full min-h-screen bg-gradient-secondary flex items-center justify-center py-8 px-4">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating hearts */}

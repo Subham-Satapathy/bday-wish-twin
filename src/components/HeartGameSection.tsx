@@ -135,7 +135,7 @@ export default function HeartGameSection() {
   }, [])
 
   return (
-    <div className="relative w-full bg-primary-lavender p-4 py-8">
+    <div className="relative w-full min-h-screen bg-primary-lavender flex flex-col items-center justify-center p-4 py-8">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0" style={{

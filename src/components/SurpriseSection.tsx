@@ -41,7 +41,7 @@ export default function SurpriseSection() {
   }
 
   return (
-    <div className="relative w-full h-screen bg-gradient-sunset overflow-hidden flex items-center justify-center">
+    <div className="relative w-full min-h-screen bg-gradient-sunset overflow-hidden flex flex-col">
       {/* Background stars */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(50)].map((_, i) => (
@@ -119,158 +119,135 @@ export default function SurpriseSection() {
       )}
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl">
-        {/* Animated messages */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentMessageIndex}
-            className="mb-12"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -50, scale: 0.8 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100 
-            }}
-          >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-script text-white leading-tight px-4 text-center">
-              {messages[currentMessageIndex]}
-            </h1>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Giant animated heart */}
-        <AnimatePresence>
-          {showHeart && (
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 py-8">
+        <div className="w-full max-w-4xl mx-auto space-y-8">
+          {/* Animated messages */}
+          <AnimatePresence mode="wait">
             <motion.div
-              className="relative mx-auto mb-12"
-              initial={{ scale: 0, rotate: 45 }}
-              animate={{ 
-                scale: [0, 1.2, 1],
-                rotate: [45, 45, 45],
-              }}
+              key={currentMessageIndex}
+              className="mb-8"
+              initial={{ opacity: 0, y: 50, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -50, scale: 0.8 }}
               transition={{ 
-                duration: 1.5, 
+                duration: 1.2, 
                 ease: "easeOut",
                 type: "spring",
-                stiffness: 80
+                stiffness: 100 
               }}
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 bg-white heart mx-auto relative">
-                {/* Heart pulsing effect */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script text-white leading-tight text-center">
+                {messages[currentMessageIndex]}
+              </h1>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Subtle heart decoration */}
+          <AnimatePresence>
+            {showHeart && (
+              <motion.div
+                className="flex justify-center mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
                 <motion.div
-                  className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 bg-white/50 heart"
+                  className="text-5xl sm:text-6xl"
                   animate={{
-                    scale: [1, 1.3, 1],
+                    scale: [1, 1.1, 1],
                   }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                />
-                
-                {/* Sparkles around heart */}
-                {[...Array(8)].map((_, i) => (
-                  <motion.div
+                >
+                  💕
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Final celebration text */}
+          {showFireworks && (
+            <motion.div
+              className="space-y-6 sm:space-y-8 w-full"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <motion.p
+                className="text-lg sm:text-xl md:text-2xl text-contrast-light font-light text-center leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.7 }}
+              >
+                You make every day feel like a celebration! ✨
+              </motion.p>
+              
+              <motion.div
+                className="flex justify-center space-x-3 sm:space-x-4 md:space-x-6 text-2xl sm:text-3xl md:text-4xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                {['🎊', '🎉', '💕', '🎈', '✨'].map((emoji, i) => (
+                  <motion.span
                     key={i}
-                    className="absolute w-2 h-2 bg-white rounded-full"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      marginLeft: '-4px',
-                      marginTop: '-4px',
-                    }}
+                    className="inline-block"
                     animate={{
-                      x: Math.cos((i * 45) * Math.PI / 180) * 80,
-                      y: Math.sin((i * 45) * Math.PI / 180) * 80,
-                      opacity: [0, 1, 0],
-                      scale: [0, 1, 0],
+                      y: [0, -6, 0],
+                      rotate: [0, 5, -5, 0],
+                      scale: [1, 1.05, 1],
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 4,
                       repeat: Infinity,
-                      delay: i * 0.2,
-                      ease: "easeOut"
+                      delay: i * 0.3,
+                      ease: "easeInOut"
                     }}
-                  />
+                    whileHover={{
+                      scale: 1.2,
+                      rotate: 360,
+                      transition: { duration: 0.5 }
+                    }}
+                  >
+                    {emoji}
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
+
+              <motion.p
+                className="text-base sm:text-lg md:text-xl text-contrast-light italic text-center leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.5 }}
+              >
+                Here&apos;s to many more beautiful years together! 🥂
+              </motion.p>
             </motion.div>
           )}
-        </AnimatePresence>
+        </div>
 
-        {/* Final celebration text */}
-        {showFireworks && (
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <p className="text-2xl md:text-3xl text-white/90 font-light">
-              You make every day feel like a celebration! ✨
-            </p>
-            
-            <div className="flex justify-center space-x-3 sm:space-x-4 text-3xl sm:text-4xl md:text-5xl">
-              {['🎊', '🎉', '💕', '🎈', '✨'].map((emoji, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block"
-                  animate={{
-                    y: [0, -15, 0],
-                    rotate: [0, 10, -10, 0],
-                    scale: [1, 1.15, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.4,
-                    ease: "easeInOut"
-                  }}
-                  whileHover={{
-                    scale: 1.3,
-                    rotate: 360,
-                    transition: { duration: 0.5 }
-                  }}
-                >
-                  {emoji}
-                </motion.span>
-              ))}
-            </div>
-
-            <motion.p
-              className="text-lg md:text-xl text-white/80 italic"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
-            >
-              Here&apos;s to many more beautiful years together! 🥂
-            </motion.p>
-          </motion.div>
-        )}
-
-        {/* Floating hearts around the screen */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
+        {/* Subtle floating hearts */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-6 h-6 bg-white/70 heart"
+              className="absolute w-3 h-3 bg-white/25 heart"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${100 + Math.random() * 50}%`,
+                left: `${20 + i * 15}%`,
+                top: `${80 + Math.random() * 20}%`,
               }}
               animate={{
-                y: [-50, -window.innerHeight - 100],
+                y: [-20, -300],
                 rotate: [45, 45],
-                opacity: [0, 0.7, 0],
+                opacity: [0, 0.3, 0],
               }}
               transition={{
-                duration: 8 + Math.random() * 4,
+                duration: 12 + Math.random() * 6,
                 repeat: Infinity,
-                delay: Math.random() * 5,
+                delay: i * 1.2,
                 ease: "linear"
               }}
             />
@@ -281,14 +258,14 @@ export default function SurpriseSection() {
       {/* Scroll to top hint */}
       {showFireworks && (
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
+          className="relative pb-8 pt-4 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 3 }}
         >
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 text-white hover:bg-white/30 transition-all duration-300"
+            className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base text-white hover:bg-white/30 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -298,10 +275,10 @@ export default function SurpriseSection() {
       )}
 
       {/* Corner decorative elements */}
-      <div className="absolute top-8 left-8 w-16 h-16 bg-white/20 heart opacity-50" />
-      <div className="absolute top-8 right-8 w-12 h-12 bg-white/20 heart opacity-60" />
-      <div className="absolute bottom-16 left-12 w-10 h-10 bg-white/20 heart opacity-40" />
-      <div className="absolute bottom-20 right-16 w-14 h-14 bg-white/20 heart opacity-50" />
+      <div className="absolute top-8 left-8 w-8 h-8 bg-white/15 heart opacity-50" />
+      <div className="absolute top-8 right-8 w-6 h-6 bg-white/15 heart opacity-60" />
+      <div className="absolute bottom-16 left-12 w-5 h-5 bg-white/15 heart opacity-40" />
+      <div className="absolute bottom-20 right-16 w-7 h-7 bg-white/15 heart opacity-50" />
     </div>
   )
 }

@@ -133,7 +133,7 @@ export default function CelebrateSection() {
   }, [isAnimating, animateConfetti])
 
   return (
-    <div className="relative w-full bg-primary-mint overflow-hidden py-8">
+    <div className="relative w-full min-h-screen bg-primary-mint flex items-center justify-center overflow-hidden py-8">
       {/* Canvas for confetti */}
       <canvas
         ref={canvasRef}
